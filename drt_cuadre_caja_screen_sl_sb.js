@@ -556,7 +556,7 @@ define(['N/ui/serverWidget', 'N/search', 'N/runtime', 'N/record', 'N/format'],
             
           }
         }
-        const id_loaded_corte = corte_record.save({ ignoreMandatoryFields: true });
+        const id_loaded_corte = corte_record.save({ ignoreMandatoryFields: true, enableSourcing: false });
         if (id_loaded_corte) {
           
           for (let index = 0; index < tran_arr.length; index++) {
