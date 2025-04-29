@@ -10,7 +10,7 @@
  * Sublista objetivo: 'customsublist17'
  */
 
-define(['N/currentRecord'], function(currentRecord) {
+define(['N/currentRecord'], function (currentRecord) {
 
     function pageInit(context) {
         try {
@@ -19,15 +19,15 @@ define(['N/currentRecord'], function(currentRecord) {
             var lineCount = rec.getLineCount({ sublistId: sublistId });
 
             if (lineCount > 0) {
-                console.log(`La sublista '${sublistId}' tiene ${lineCount} líneas.`);
+                console.log('La sublista "' + sublistId + '" tiene ' + lineCount + ' líneas.');
 
                 var fieldIds = [];
-                var testLine = 0; // Puedes cambiar a otra línea si lo deseas
+                var testLine = 0;
 
-                // Campos comunes a probar (puedes agregar más si lo deseas)
+                // Campos comunes que se pueden intentar leer
                 var knownFields = ['internalid', 'name', 'email', 'amount', 'entity', 'status'];
 
-                knownFields.forEach(function(fieldId) {
+                knownFields.forEach(function (fieldId) {
                     try {
                         var value = rec.getSublistValue({
                             sublistId: sublistId,
@@ -36,13 +36,13 @@ define(['N/currentRecord'], function(currentRecord) {
                         });
                         fieldIds.push({ fieldId: fieldId, value: value });
                     } catch (e) {
-                        // Ignorar campos inexistentes
+                        // Ignorar si el campo no existe
                     }
                 });
 
                 console.log('Campos identificados en la sublista:', fieldIds);
             } else {
-                console.log(`La sublista '${sublistId}' no tiene líneas.`);
+                console.log('La sublista "' + sublistId + '" no tiene líneas.');
             }
 
         } catch (error) {
